@@ -4,20 +4,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مطعم أهل القمة | Ahel Al Qema</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<title>أهل القمة - مطعم ومشاوي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --gold: #c8973a;
-    --gold-light: #e8b96a;
-    --gold-dark: #8a6420;
-    --brown: #3d1f0a;
-    --brown-mid: #6b3a1a;
-    --cream: #f5ead8;
-    --cream-dark: #e8d5b5;
-    --charcoal: #1a0e05;
-    --white: #fefaf4;
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-dark: #9A7A30;
+    --cream: #FDF6E3;
+    --dark-brown: #1A0E00;
+    --medium-brown: #3D2200;
+    --text-dark: #1A0E00;
+    --text-medium: #4A3200;
+    --white: #FFFFFF;
+    --shadow: 0 8px 40px rgba(0,0,0,0.15);
   }
 
 - { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,701 +25,824 @@
 html { scroll-behavior: smooth; }
 
 body {
-font-family: ‘Tajawal’, sans-serif;
-background: var(–charcoal);
-color: var(–cream);
+font-family: ‘Cairo’, sans-serif;
+background: var(–cream);
+color: var(–text-dark);
+direction: rtl;
 overflow-x: hidden;
 }
 
-/* NAV */
+/* ===== NAVBAR ===== */
 nav {
-position: fixed; top: 0; width: 100%; z-index: 100;
-background: rgba(26, 14, 5, 0.95);
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1000;
+background: rgba(26,14,0,0.97);
 backdrop-filter: blur(10px);
-border-bottom: 1px solid rgba(200, 151, 58, 0.3);
-padding: 0 2rem;
-display: flex; align-items: center; justify-content: space-between;
-height: 70px;
+padding: 0 24px;
+height: 64px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+border-bottom: 2px solid var(–gold);
+box-shadow: 0 4px 30px rgba(0,0,0,0.5);
 }
 
 .nav-logo {
-font-family: ‘Scheherazade New’, serif;
-font-size: 1.6rem;
-color: var(–gold);
+font-family: ‘Amiri’, serif;
+font-size: 24px;
+color: var(–gold-light);
 font-weight: 700;
 letter-spacing: 1px;
 }
 
 .nav-links {
-display: flex; gap: 2rem; list-style: none;
+display: flex;
+gap: 6px;
+list-style: none;
 }
 
 .nav-links a {
-color: var(–cream); text-decoration: none;
-font-size: 0.95rem; font-weight: 500;
-transition: color 0.3s;
-position: relative;
-}
-
-.nav-links a::after {
-content: ‘’; position: absolute; bottom: -4px; right: 0;
-width: 0; height: 2px; background: var(–gold);
-transition: width 0.3s;
-}
-
-.nav-links a:hover { color: var(–gold); }
-.nav-links a:hover::after { width: 100%; }
-
-.nav-cta {
-background: var(–gold); color: var(–brown) !important;
-padding: 0.4rem 1.2rem; border-radius: 4px; font-weight: 700 !important;
-}
-
-.nav-cta:hover { background: var(–gold-light) !important; color: var(–brown) !important; }
-.nav-cta::after { display: none !important; }
-
-/* HERO */
-.hero {
-min-height: 100vh;
-background: linear-gradient(160deg, #1a0e05 0%, #3d1f0a 40%, #1a0e05 100%);
-display: flex; align-items: center; justify-content: center;
-text-align: center;
-position: relative; overflow: hidden;
-padding-top: 70px;
-}
-
-.hero-pattern {
-position: absolute; inset: 0;
-background-image:
-radial-gradient(circle at 20% 20%, rgba(200,151,58,0.08) 0%, transparent 50%),
-radial-gradient(circle at 80% 80%, rgba(200,151,58,0.06) 0%, transparent 50%);
-pointer-events: none;
-}
-
-.hero-ornament {
-position: absolute; width: 600px; height: 600px;
-border: 1px solid rgba(200,151,58,0.12);
-border-radius: 50%; top: 50%; left: 50%;
-transform: translate(-50%, -50%);
-}
-
-.hero-ornament::before {
-content: ‘’; position: absolute; inset: 30px;
-border: 1px solid rgba(200,151,58,0.08);
-border-radius: 50%;
-}
-
-.hero-content { position: relative; z-index: 2; padding: 2rem; }
-
-.hero-badge {
-display: inline-block;
-border: 1px solid var(–gold);
-color: var(–gold);
-font-size: 0.8rem; letter-spacing: 3px;
-padding: 0.4rem 1.5rem;
-margin-bottom: 1.5rem;
-text-transform: uppercase;
-animation: fadeInDown 0.8s ease both;
-}
-
-.hero-title {
-font-family: ‘Scheherazade New’, serif;
-font-size: clamp(3rem, 8vw, 6rem);
-line-height: 1.1;
-color: var(–gold);
-text-shadow: 0 0 60px rgba(200,151,58,0.3);
-animation: fadeInUp 0.8s ease 0.2s both;
-margin-bottom: 0.5rem;
-}
-
-.hero-subtitle {
-font-size: clamp(1rem, 2.5vw, 1.4rem);
-color: var(–cream-dark);
-font-weight: 300;
-margin-bottom: 1rem;
-animation: fadeInUp 0.8s ease 0.3s both;
-}
-
-.hero-tagline {
-font-size: 1.1rem;
-color: var(–gold-light);
-margin-bottom: 2.5rem;
-font-weight: 500;
-animation: fadeInUp 0.8s ease 0.4s both;
-}
-
-.hero-buttons {
-display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-animation: fadeInUp 0.8s ease 0.5s both;
-}
-
-.btn-primary {
-background: var(–gold); color: var(–brown);
-padding: 0.9rem 2.5rem; border: none; border-radius: 4px;
-font-family: ‘Tajawal’, sans-serif; font-size: 1rem; font-weight: 700;
-cursor: pointer; text-decoration: none;
-transition: all 0.3s;
-display: inline-flex; align-items: center; gap: 0.5rem;
-}
-
-.btn-primary:hover {
-background: var(–gold-light); transform: translateY(-2px);
-box-shadow: 0 8px 25px rgba(200,151,58,0.4);
-}
-
-.btn-outline {
-border: 2px solid var(–gold); color: var(–gold);
-padding: 0.9rem 2.5rem; border-radius: 4px;
-font-family: ‘Tajawal’, sans-serif; font-size: 1rem; font-weight: 700;
-cursor: pointer; text-decoration: none;
-transition: all 0.3s;
-display: inline-flex; align-items: center; gap: 0.5rem;
-background: transparent;
-}
-
-.btn-outline:hover {
-background: rgba(200,151,58,0.1); transform: translateY(-2px);
-}
-
-.hero-stats {
-display: flex; justify-content: center; gap: 3rem;
-margin-top: 3rem;
-animation: fadeInUp 0.8s ease 0.6s both;
-}
-
-.hero-stat { text-align: center; }
-.hero-stat .number {
-font-family: ‘Scheherazade New’, serif;
-font-size: 2.2rem; color: var(–gold); font-weight: 700;
-line-height: 1;
-}
-.hero-stat .label { font-size: 0.85rem; color: var(–cream-dark); margin-top: 0.3rem; }
-
-/* DIVIDER */
-.section-divider {
-text-align: center; padding: 1rem;
-overflow: hidden;
-}
-.section-divider span {
-display: inline-block; position: relative;
-color: var(–gold); font-size: 1.5rem;
-}
-.section-divider span::before, .section-divider span::after {
-content: ‘’;
-position: absolute; top: 50%;
-width: 80px; height: 1px; background: var(–gold);
-opacity: 0.4;
-}
-.section-divider span::before { right: 2rem; }
-.section-divider span::after { left: 2rem; }
-
-/* SECTIONS */
-section { padding: 5rem 2rem; }
-
-.section-header {
-text-align: center; margin-bottom: 3.5rem;
-}
-
-.section-label {
-font-size: 0.8rem; letter-spacing: 4px;
-color: var(–gold); text-transform: uppercase;
-margin-bottom: 0.8rem; display: block;
-}
-
-.section-title {
-font-family: ‘Scheherazade New’, serif;
-font-size: clamp(2rem, 5vw, 3rem);
-color: var(–cream); line-height: 1.2;
-}
-
-.section-title span { color: var(–gold); }
-
-/* ABOUT */
-#about {
-background: linear-gradient(180deg, var(–charcoal) 0%, #2a1005 100%);
-}
-
-.about-grid {
-max-width: 1100px; margin: 0 auto;
-display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-}
-
-.about-text h3 {
-font-family: ‘Scheherazade New’, serif;
-font-size: 1.8rem; color: var(–gold); margin-bottom: 1rem;
-}
-
-.about-text p {
-color: var(–cream-dark); line-height: 2; font-size: 1.05rem;
-margin-bottom: 1rem; font-weight: 300;
-}
-
-.about-features {
-display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem;
-}
-
-.feature-card {
-background: rgba(200,151,58,0.07);
-border: 1px solid rgba(200,151,58,0.2);
-border-radius: 8px; padding: 1.2rem;
-text-align: center; transition: all 0.3s;
-}
-
-.feature-card:hover {
-background: rgba(200,151,58,0.12);
-border-color: rgba(200,151,58,0.4);
-transform: translateY(-3px);
-}
-
-.feature-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-.feature-label { font-size: 0.9rem; color: var(–cream-dark); }
-
-.about-visual {
-position: relative;
-}
-
-.visual-box {
-background: linear-gradient(135deg, rgba(200,151,58,0.15), rgba(200,151,58,0.05));
-border: 1px solid rgba(200,151,58,0.3);
-border-radius: 12px; padding: 2.5rem;
-text-align: center;
-}
-
-.visual-box .big-text {
-font-family: ‘Scheherazade New’, serif;
-font-size: 5rem; color: var(–gold); line-height: 1;
-opacity: 0.6;
-}
-
-.visual-box .sub-text {
-font-size: 1.1rem; color: var(–cream-dark);
-margin-top: 1rem; line-height: 1.8;
-}
-
-/* MENU */
-#menu {
-background: #150b03;
-}
-
-.menu-tabs {
-display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem;
-margin-bottom: 3rem;
-}
-
-.tab-btn {
-background: transparent;
-border: 1px solid rgba(200,151,58,0.4);
-color: var(–cream-dark);
-padding: 0.6rem 1.5rem; border-radius: 30px;
-font-family: ‘Tajawal’, sans-serif; font-size: 0.95rem;
-cursor: pointer; transition: all 0.3s;
-}
-
-.tab-btn.active, .tab-btn:hover {
-background: var(–gold); color: var(–brown); border-color: var(–gold);
-font-weight: 700;
-}
-
-.menu-panel { display: none; }
-.menu-panel.active { display: block; }
-
-.menu-grid {
-max-width: 1000px; margin: 0 auto;
-display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem;
-}
-
-.menu-item {
-background: rgba(255,255,255,0.03);
-border: 1px solid rgba(200,151,58,0.15);
-border-radius: 10px; padding: 1.2rem 1.5rem;
-display: flex; justify-content: space-between; align-items: center;
-transition: all 0.3s;
-}
-
-.menu-item:hover {
-background: rgba(200,151,58,0.08);
-border-color: rgba(200,151,58,0.4);
-transform: translateX(-4px);
-}
-
-.item-name { font-size: 1rem; color: var(–cream); font-weight: 500; }
-.item-sub { font-size: 0.8rem; color: var(–cream-dark); opacity: 0.7; margin-top: 0.2rem; }
-
-.item-price {
-font-family: ‘Scheherazade New’, serif;
-font-size: 1.2rem; color: var(–gold); font-weight: 700;
-white-space: nowrap; margin-right: 1rem;
-}
-
-.price-note { font-size: 0.75rem; color: var(–gold-dark); }
-
-.menu-banner {
-background: linear-gradient(135deg, rgba(200,151,58,0.15), rgba(200,151,58,0.05));
-border: 1px solid rgba(200,151,58,0.3);
-border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem;
-max-width: 1000px; margin-inline: auto;
-display: flex; align-items: center; gap: 1rem;
-}
-
-.menu-banner .banner-icon { font-size: 2rem; }
-.menu-banner .banner-text { font-size: 0.95rem; color: var(–cream-dark); line-height: 1.7; }
-
-/* OFFERS */
-#offers {
-background: linear-gradient(180deg, #150b03 0%, var(–charcoal) 100%);
-}
-
-.offers-grid {
-max-width: 1000px; margin: 0 auto;
-display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;
-}
-
-.offer-card {
-background: linear-gradient(135deg, rgba(200,151,58,0.12), rgba(200,151,58,0.04));
-border: 1px solid rgba(200,151,58,0.35);
-border-radius: 12px; padding: 2rem;
-transition: all 0.3s; position: relative; overflow: hidden;
-}
-
-.offer-card::before {
-content: ‘’; position: absolute; top: -50%; right: -50%;
-width: 150px; height: 150px;
-background: radial-gradient(circle, rgba(200,151,58,0.1) 0%, transparent 70%);
-pointer-events: none;
-}
-
-.offer-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 15px 40px rgba(200,151,58,0.15);
-border-color: var(–gold);
-}
-
-.offer-tag {
-display: inline-block; background: var(–gold); color: var(–brown);
-font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.8rem;
-border-radius: 20px; margin-bottom: 1rem;
-}
-
-.offer-name {
-font-family: ‘Scheherazade New’, serif;
-font-size: 1.4rem; color: var(–cream); margin-bottom: 0.5rem;
-}
-
-.offer-desc { font-size: 0.9rem; color: var(–cream-dark); line-height: 1.7; margin-bottom: 1rem; }
-
-.offer-price {
-font-size: 1.6rem; color: var(–gold); font-weight: 700;
-font-family: ‘Scheherazade New’, serif;
-}
-
-/* REVIEWS */
-#reviews {
-background: #150b03;
-}
-
-.reviews-grid {
-max-width: 1100px; margin: 0 auto;
-display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
-}
-
-.review-card {
-background: rgba(255,255,255,0.03);
-border: 1px solid rgba(200,151,58,0.2);
-border-radius: 12px; padding: 1.8rem;
-transition: all 0.3s; position: relative;
-}
-
-.review-card:hover {
-transform: translateY(-4px);
-border-color: rgba(200,151,58,0.5);
-box-shadow: 0 10px 30px rgba(200,151,58,0.1);
-}
-
-.review-quote {
-font-size: 3rem; color: var(–gold); opacity: 0.4;
-line-height: 1; margin-bottom: -0.5rem;
-font-family: ‘Scheherazade New’, serif;
-}
-
-.review-text {
-font-size: 0.95rem; color: var(–cream-dark); line-height: 1.9;
-margin-bottom: 1.5rem; font-weight: 300;
-}
-
-.review-stars { color: var(–gold); font-size: 1.1rem; margin-bottom: 1rem; }
-
-.reviewer {
-display: flex; align-items: center; gap: 0.8rem;
-border-top: 1px solid rgba(200,151,58,0.15); padding-top: 1rem;
-}
-
-.reviewer-avatar {
-width: 42px; height: 42px; border-radius: 50%;
-background: linear-gradient(135deg, var(–gold-dark), var(–gold));
-display: flex; align-items: center; justify-content: center;
-font-size: 1.1rem; font-weight: 700; color: var(–charcoal);
-}
-
-.reviewer-name { font-weight: 700; color: var(–cream); font-size: 0.95rem; }
-.reviewer-date { font-size: 0.8rem; color: var(–cream-dark); opacity: 0.6; }
-
-/* CONTACT */
-#contact {
-background: linear-gradient(180deg, #150b03 0%, var(–charcoal) 100%);
-}
-
-.contact-grid {
-max-width: 1000px; margin: 0 auto;
-display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-}
-
-.contact-info h3 {
-font-family: ‘Scheherazade New’, serif;
-font-size: 1.8rem; color: var(–gold); margin-bottom: 1.5rem;
-}
-
-.contact-item {
-display: flex; align-items: flex-start; gap: 1rem;
-margin-bottom: 1.5rem;
-padding: 1.2rem;
-background: rgba(200,151,58,0.05);
-border: 1px solid rgba(200,151,58,0.15);
+color: var(–cream);
+text-decoration: none;
+font-size: 14px;
+font-weight: 600;
+padding: 8px 14px;
 border-radius: 8px;
 transition: all 0.3s;
 }
 
-.contact-item:hover {
-background: rgba(200,151,58,0.1);
-border-color: rgba(200,151,58,0.4);
+.nav-links a:hover {
+background: var(–gold);
+color: var(–dark-brown);
 }
 
-.contact-icon { font-size: 1.5rem; flex-shrink: 0; }
-.contact-label { font-size: 0.8rem; color: var(–gold); margin-bottom: 0.3rem; }
-.contact-value { font-size: 1rem; color: var(–cream); font-weight: 500; }
-.contact-value a { color: var(–cream); text-decoration: none; }
-.contact-value a:hover { color: var(–gold); }
-
-.contact-actions { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
-
-.action-btn {
-display: flex; align-items: center; justify-content: center; gap: 0.8rem;
-padding: 1rem 2rem; border-radius: 8px;
-font-family: ‘Tajawal’, sans-serif; font-size: 1rem; font-weight: 700;
-text-decoration: none; transition: all 0.3s; border: none; cursor: pointer;
+/* ===== HERO ===== */
+.hero {
+min-height: 100vh;
+background: linear-gradient(160deg, var(–dark-brown) 0%, var(–medium-brown) 50%, #5C3300 100%);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 100px 24px 60px;
+position: relative;
+overflow: hidden;
 }
 
-.action-whatsapp {
-background: #25D366; color: white;
+.hero::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.12) 0%, transparent 70%);
 }
 
-.action-whatsapp:hover {
-background: #1fab52; transform: translateY(-2px);
-box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+.hero-pattern {
+position: absolute;
+inset: 0;
+opacity: 0.04;
+background-image: url(“data:image/svg+xml,%3Csvg width=‘60’ height=‘60’ viewBox=‘0 0 60 60’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cg fill=‘none’ fill-rule=‘evenodd’%3E%3Cg fill=’%23C9A84C’ fill-opacity=‘1’%3E%3Cpath d=‘M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z’/%3E%3C/g%3E%3C/g%3E%3C/svg%3E”);
 }
 
-.action-instagram {
-background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+.hero-badge {
+display: inline-block;
+background: var(–gold);
+color: var(–dark-brown);
+font-size: 13px;
+font-weight: 700;
+padding: 6px 20px;
+border-radius: 50px;
+margin-bottom: 24px;
+letter-spacing: 2px;
+position: relative;
+}
+
+.hero-logo-img {
+width: 110px;
+height: 110px;
+border-radius: 50%;
+border: 3px solid var(–gold);
+margin-bottom: 20px;
+object-fit: cover;
+box-shadow: 0 0 40px rgba(201,168,76,0.4);
+background: var(–medium-brown);
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+}
+
+.logo-circle {
+width: 110px;
+height: 110px;
+border-radius: 50%;
+border: 3px solid var(–gold);
+margin: 0 auto 20px;
+background: var(–medium-brown);
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 0 40px rgba(201,168,76,0.3);
+font-family: ‘Amiri’, serif;
+color: var(–gold);
+font-size: 18px;
+font-weight: 700;
+position: relative;
+}
+
+.hero h1 {
+font-family: ‘Amiri’, serif;
+font-size: clamp(52px, 14vw, 90px);
+color: var(–gold-light);
+line-height: 1.1;
+margin-bottom: 10px;
+position: relative;
+text-shadow: 0 4px 30px rgba(201,168,76,0.3);
+}
+
+.hero h2 {
+font-size: 17px;
+color: rgba(255,255,255,0.75);
+letter-spacing: 3px;
+margin-bottom: 16px;
+font-weight: 400;
+position: relative;
+}
+
+.hero-tagline {
+font-size: 20px;
+color: var(–cream);
+margin-bottom: 40px;
+position: relative;
+font-weight: 600;
+}
+
+.hero-stats {
+display: flex;
+gap: 40px;
+justify-content: center;
+margin-bottom: 44px;
+position: relative;
+}
+
+.stat {
+text-align: center;
+}
+
+.stat-value {
+font-size: 32px;
+font-weight: 900;
+color: var(–gold-light);
+line-height: 1;
+}
+
+.stat-label {
+font-size: 12px;
+color: rgba(255,255,255,0.65);
+margin-top: 4px;
+font-weight: 600;
+}
+
+.hero-buttons {
+display: flex;
+flex-direction: column;
+gap: 14px;
+width: 100%;
+max-width: 320px;
+position: relative;
+}
+
+.btn-primary {
+background: var(–gold);
+color: var(–dark-brown);
+border: none;
+padding: 16px 32px;
+border-radius: 14px;
+font-size: 17px;
+font-weight: 700;
+font-family: ‘Cairo’, sans-serif;
+cursor: pointer;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+box-shadow: 0 6px 24px rgba(201,168,76,0.45);
+transition: all 0.3s;
+letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+background: var(–gold-light);
+transform: translateY(-2px);
+box-shadow: 0 10px 32px rgba(201,168,76,0.55);
+}
+
+.btn-secondary {
+background: transparent;
+color: var(–gold-light);
+border: 2px solid var(–gold);
+padding: 15px 32px;
+border-radius: 14px;
+font-size: 17px;
+font-weight: 700;
+font-family: ‘Cairo’, sans-serif;
+cursor: pointer;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+background: var(–gold);
+color: var(–dark-brown);
+transform: translateY(-2px);
+}
+
+.whatsapp-float {
+position: fixed;
+bottom: 24px;
+left: 24px;
+z-index: 999;
+background: #25D366;
+color: white;
+padding: 14px 22px;
+border-radius: 50px;
+font-size: 16px;
+font-weight: 700;
+font-family: ‘Cairo’, sans-serif;
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 8px;
+box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+transition: all 0.3s;
+}
+
+.whatsapp-float:hover {
+transform: translateY(-3px);
+box-shadow: 0 10px 30px rgba(37,211,102,0.6);
+}
+
+/* ===== SECTION SHARED ===== */
+section {
+padding: 80px 24px;
+}
+
+.section-header {
+text-align: center;
+margin-bottom: 50px;
+}
+
+.section-tag {
+display: inline-block;
+background: var(–gold);
+color: var(–dark-brown);
+font-size: 12px;
+font-weight: 700;
+padding: 5px 18px;
+border-radius: 50px;
+margin-bottom: 14px;
+letter-spacing: 2px;
+}
+
+.section-title {
+font-family: ‘Amiri’, serif;
+font-size: clamp(30px, 8vw, 46px);
+color: var(–dark-brown);
+font-weight: 700;
+margin-bottom: 10px;
+}
+
+.section-sub {
+font-size: 15px;
+color: var(–text-medium);
+font-weight: 400;
+}
+
+.divider {
+width: 80px;
+height: 3px;
+background: linear-gradient(90deg, var(–gold-dark), var(–gold-light));
+margin: 16px auto 0;
+border-radius: 4px;
+}
+
+/* ===== MENU SECTION ===== */
+#menu {
+background: var(–cream);
+}
+
+.menu-tabs {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+justify-content: center;
+margin-bottom: 40px;
+}
+
+.tab-btn {
+background: white;
+border: 2px solid #E8DCC8;
+color: var(–text-medium);
+padding: 10px 20px;
+border-radius: 50px;
+font-size: 14px;
+font-weight: 700;
+font-family: ‘Cairo’, sans-serif;
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+background: var(–gold);
+border-color: var(–gold);
+color: var(–dark-brown);
+box-shadow: 0 4px 16px rgba(201,168,76,0.4);
+}
+
+.menu-category {
+display: none;
+max-width: 700px;
+margin: 0 auto;
+animation: fadeIn 0.4s ease;
+}
+
+.menu-category.active { display: block; }
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-cat-title {
+font-family: ‘Amiri’, serif;
+font-size: 26px;
+color: var(–gold-dark);
+text-align: center;
+margin-bottom: 20px;
+padding-bottom: 12px;
+border-bottom: 2px solid var(–gold);
+}
+
+.menu-item {
+background: white;
+border-radius: 14px;
+padding: 16px 20px;
+margin-bottom: 12px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+border: 1.5px solid #F0E8D5;
+transition: all 0.3s;
+}
+
+.menu-item:hover {
+border-color: var(–gold);
+box-shadow: 0 4px 20px rgba(201,168,76,0.2);
+transform: translateX(-3px);
+}
+
+.item-info { flex: 1; }
+
+.item-name {
+font-size: 16px;
+font-weight: 700;
+color: var(–text-dark);
+margin-bottom: 3px;
+}
+
+.item-desc {
+font-size: 12px;
+color: #888;
+font-weight: 400;
+}
+
+.item-price {
+background: var(–gold);
+color: var(–dark-brown);
+font-size: 14px;
+font-weight: 900;
+padding: 6px 14px;
+border-radius: 50px;
+white-space: nowrap;
+margin-right: 12px;
+flex-shrink: 0;
+}
+
+.price-on-request {
+background: #F0E8D5;
+color: var(–text-medium);
+}
+
+/* ===== ABOUT ===== */
+#about {
+background: var(–dark-brown);
 color: white;
 }
 
-.action-instagram:hover {
-transform: translateY(-2px);
-box-shadow: 0 8px 20px rgba(253, 29, 29, 0.3);
+#about .section-title { color: var(–gold-light); }
+#about .section-sub { color: rgba(255,255,255,0.75); }
+
+.about-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 20px;
+max-width: 700px;
+margin: 0 auto;
 }
 
-.action-maps {
-background: rgba(200,151,58,0.15);
-color: var(–gold);
-border: 1px solid rgba(200,151,58,0.4);
-}
-
-.action-maps:hover {
-background: rgba(200,151,58,0.25); transform: translateY(-2px);
-}
-
-.map-embed {
-background: rgba(200,151,58,0.05);
-border: 1px solid rgba(200,151,58,0.2);
-border-radius: 12px; overflow: hidden;
-min-height: 300px;
-display: flex; flex-direction: column;
-}
-
-.map-placeholder {
-flex: 1; display: flex; flex-direction: column;
-align-items: center; justify-content: center;
-text-align: center; padding: 2rem;
-gap: 1rem;
-}
-
-.map-placeholder .map-icon { font-size: 3rem; }
-.map-placeholder .map-address { font-size: 1rem; color: var(–cream-dark); line-height: 1.7; }
-
-.map-iframe-container {
-width: 100%; height: 300px; border-radius: 12px; overflow: hidden;
-}
-
-.map-iframe-container iframe {
-width: 100%; height: 100%; border: none; filter: grayscale(0.3) sepia(0.2);
-}
-
-/* FOOTER */
-footer {
-background: var(–brown);
-padding: 2rem;
+.about-card {
+background: rgba(255,255,255,0.07);
+border: 1.5px solid rgba(201,168,76,0.3);
+border-radius: 16px;
+padding: 24px;
 text-align: center;
-border-top: 1px solid rgba(200,151,58,0.3);
+transition: all 0.3s;
 }
 
-.footer-logo {
-font-family: ‘Scheherazade New’, serif;
-font-size: 2rem; color: var(–gold); margin-bottom: 0.5rem;
+.about-card:hover {
+background: rgba(201,168,76,0.1);
+border-color: var(–gold);
+transform: translateY(-4px);
 }
 
-.footer-tagline { font-size: 0.9rem; color: var(–cream-dark); margin-bottom: 1rem; }
-.footer-copy { font-size: 0.8rem; color: var(–cream-dark); opacity: 0.5; }
-
-/* FLOATING CTA */
-.floating-cta {
-position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
-background: #25D366; color: white;
-padding: 0.9rem 2rem; border-radius: 50px;
-font-family: ‘Tajawal’, sans-serif; font-size: 1rem; font-weight: 700;
-text-decoration: none; z-index: 50;
-display: flex; align-items: center; gap: 0.6rem;
-box-shadow: 0 5px 25px rgba(37,211,102,0.5);
-animation: pulse 2s infinite;
+.about-icon {
+font-size: 36px;
+margin-bottom: 12px;
 }
 
-@keyframes pulse {
-0%, 100% { box-shadow: 0 5px 25px rgba(37,211,102,0.5); }
-50% { box-shadow: 0 5px 40px rgba(37,211,102,0.8); }
+.about-card h3 {
+color: var(–gold-light);
+font-size: 18px;
+font-weight: 700;
+margin-bottom: 8px;
 }
 
-/* ANIMATIONS */
-@keyframes fadeInDown {
-from { opacity: 0; transform: translateY(-20px); }
-to { opacity: 1; transform: translateY(0); }
+.about-card p {
+color: rgba(255,255,255,0.75);
+font-size: 14px;
+line-height: 1.7;
 }
 
-@keyframes fadeInUp {
-from { opacity: 0; transform: translateY(20px); }
-to { opacity: 1; transform: translateY(0); }
+/* ===== REVIEWS ===== */
+#reviews {
+background: #FFF8EC;
 }
 
-/* SCROLL REVEAL */
-.reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-.nav-links { display: none; }
-.about-grid, .contact-grid { grid-template-columns: 1fr; }
-.hero-stats { gap: 1.5rem; }
-.hero-stat .number { font-size: 1.8rem; }
-.menu-grid { grid-template-columns: 1fr; }
-.floating-cta { bottom: 1rem; font-size: 0.9rem; padding: 0.8rem 1.5rem; }
+.reviews-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 20px;
+max-width: 700px;
+margin: 0 auto;
 }
 
-/* ORNAMENTAL LINE */
-.ornament-line {
-display: flex; align-items: center; justify-content: center; gap: 1rem;
-margin: 2rem 0;
+.review-card {
+background: white;
+border-radius: 18px;
+padding: 24px;
+border: 2px solid #F0E8D5;
+box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+position: relative;
+transition: all 0.3s;
 }
-.ornament-line::before, .ornament-line::after {
-content: ‘’; flex: 1; max-width: 200px; height: 1px;
-background: linear-gradient(90deg, transparent, rgba(200,151,58,0.5), transparent);
+
+.review-card:hover {
+border-color: var(–gold);
+box-shadow: 0 8px 30px rgba(201,168,76,0.2);
+transform: translateY(-4px);
 }
-.ornament-line span { color: var(–gold); font-size: 1.2rem; }
+
+.review-card::before {
+content: ‘❝’;
+position: absolute;
+top: 16px;
+left: 20px;
+font-size: 40px;
+color: var(–gold);
+opacity: 0.3;
+line-height: 1;
+font-family: serif;
+}
+
+.review-stars {
+color: var(–gold);
+font-size: 20px;
+margin-bottom: 10px;
+letter-spacing: 2px;
+}
+
+.review-text {
+font-size: 15px;
+color: var(–text-dark);
+line-height: 1.8;
+margin-bottom: 16px;
+font-weight: 400;
+}
+
+.review-author {
+display: flex;
+align-items: center;
+gap: 12px;
+border-top: 1px solid #F0E8D5;
+padding-top: 14px;
+}
+
+.author-avatar {
+width: 42px;
+height: 42px;
+border-radius: 50%;
+background: var(–gold);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 18px;
+font-weight: 700;
+color: var(–dark-brown);
+flex-shrink: 0;
+}
+
+.author-name {
+font-weight: 700;
+color: var(–text-dark);
+font-size: 15px;
+}
+
+.author-tag {
+font-size: 12px;
+color: #888;
+font-weight: 400;
+}
+
+/* ===== CONTACT ===== */
+#contact {
+background: var(–dark-brown);
+color: white;
+}
+
+#contact .section-title { color: var(–gold-light); }
+
+.contact-cards {
+display: grid;
+grid-template-columns: 1fr;
+gap: 16px;
+max-width: 600px;
+margin: 0 auto 36px;
+}
+
+.contact-card {
+background: rgba(255,255,255,0.07);
+border: 1.5px solid rgba(201,168,76,0.35);
+border-radius: 16px;
+padding: 20px 24px;
+display: flex;
+align-items: center;
+gap: 16px;
+text-decoration: none;
+color: white;
+transition: all 0.3s;
+}
+
+.contact-card:hover {
+background: rgba(201,168,76,0.12);
+border-color: var(–gold);
+transform: translateX(-4px);
+}
+
+.contact-icon {
+width: 52px;
+height: 52px;
+border-radius: 14px;
+background: var(–gold);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+flex-shrink: 0;
+}
+
+.contact-label {
+font-size: 12px;
+color: var(–gold-light);
+font-weight: 600;
+letter-spacing: 1px;
+margin-bottom: 4px;
+}
+
+.contact-value {
+font-size: 17px;
+font-weight: 700;
+color: white;
+}
+
+.map-container {
+max-width: 600px;
+margin: 0 auto;
+border-radius: 20px;
+overflow: hidden;
+border: 2px solid rgba(201,168,76,0.4);
+box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+
+.map-container iframe {
+width: 100%;
+height: 280px;
+border: none;
+display: block;
+}
+
+/* ===== FOOTER ===== */
+footer {
+background: #0D0700;
+color: rgba(255,255,255,0.5);
+text-align: center;
+padding: 28px 24px;
+font-size: 13px;
+border-top: 2px solid var(–gold-dark);
+}
+
+footer .footer-logo {
+font-family: ‘Amiri’, serif;
+font-size: 22px;
+color: var(–gold);
+margin-bottom: 10px;
+}
+
+footer .social-row {
+display: flex;
+justify-content: center;
+gap: 16px;
+margin: 14px 0;
+}
+
+footer .social-btn {
+background: rgba(255,255,255,0.08);
+border: 1px solid rgba(201,168,76,0.3);
+color: var(–gold-light);
+padding: 8px 20px;
+border-radius: 50px;
+text-decoration: none;
+font-size: 14px;
+font-weight: 600;
+transition: all 0.3s;
+display: flex;
+align-items: center;
+gap: 6px;
+}
+
+footer .social-btn:hover {
+background: var(–gold);
+color: var(–dark-brown);
+}
+
+/* ===== OFFERS BANNER ===== */
+.offers-section {
+background: linear-gradient(135deg, var(–medium-brown), #5C3300);
+padding: 60px 24px;
+}
+
+.offers-section .section-title { color: var(–gold-light); }
+
+.offers-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 16px;
+max-width: 700px;
+margin: 0 auto;
+}
+
+.offer-card {
+background: rgba(255,255,255,0.08);
+border: 2px solid rgba(201,168,76,0.4);
+border-radius: 16px;
+padding: 20px 24px;
+color: white;
+}
+
+.offer-card h3 {
+color: var(–gold-light);
+font-size: 18px;
+font-weight: 700;
+margin-bottom: 12px;
+padding-bottom: 10px;
+border-bottom: 1px solid rgba(201,168,76,0.3);
+}
+
+.offer-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 8px 0;
+border-bottom: 1px solid rgba(255,255,255,0.08);
+font-size: 15px;
+}
+
+.offer-row:last-child { border-bottom: none; }
+
+.offer-price {
+color: var(–gold);
+font-weight: 700;
+font-size: 16px;
+}
+
+@media (min-width: 600px) {
+.about-grid, .offers-grid {
+grid-template-columns: 1fr 1fr;
+}
+.contact-cards {
+grid-template-columns: 1fr 1fr;
+}
+}
 </style>
 
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 
 <nav>
-  <span class="nav-logo">أهل القمة</span>
+  <div class="nav-logo">أهل القمة</div>
   <ul class="nav-links">
-    <li><a href="#about">عن المطعم</a></li>
     <li><a href="#menu">المنيو</a></li>
     <li><a href="#offers">العروض</a></li>
-    <li><a href="#reviews">آراء الزوار</a></li>
-    <li><a href="#contact" class="nav-cta">تواصل معنا</a></li>
+    <li><a href="#reviews">تقييمات</a></li>
+    <li><a href="#contact">تواصل</a></li>
   </ul>
 </nav>
 
+<!-- WHATSAPP FLOAT -->
+
+<a href="https://wa.me/962790716066" class="whatsapp-float" target="_blank">
+  💬 اطلب الآن
+</a>
+
 <!-- HERO -->
 
-<section class="hero" id="home">
+<section class="hero">
   <div class="hero-pattern"></div>
-  <div class="hero-ornament"></div>
-  <div class="hero-content">
-    <div class="hero-badge">مطعم ومشاوي</div>
-    <h1 class="hero-title">أهل القمة</h1>
-    <p class="hero-subtitle">Ahel Al Qema Restaurant</p>
-    <p class="hero-tagline">🤤 ازكى أكل و مشاوي عنا</p>
-    <div class="hero-buttons">
-      <a href="#menu" class="btn-primary">🍽️ شوف المنيو</a>
-      <a href="https://wa.me/962790716066" class="btn-outline" target="_blank">📞 اطلب هلق</a>
+  <div class="hero-badge">🍽️ مطعم ومشاوي</div>
+  <div class="logo-circle">أهل<br>القمة</div>
+  <h1>أهل القمة</h1>
+  <h2>Ahel Al Qema Restaurant</h2>
+  <p class="hero-tagline">😋 ازكى أكل و مشاوي عنا</p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-value">⭐ 5</div>
+      <div class="stat-label">تقييم</div>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="number">64K+</div>
-        <div class="label">متابع على انستا</div>
-      </div>
-      <div class="hero-stat">
-        <div class="number">673</div>
-        <div class="label">منشور</div>
-      </div>
-      <div class="hero-stat">
-        <div class="number">⭐ 5</div>
-        <div class="label">تقييم الزوار</div>
-      </div>
+    <div class="stat">
+      <div class="stat-value">673</div>
+      <div class="stat-label">منشور</div>
     </div>
+    <div class="stat">
+      <div class="stat-value">64K+</div>
+      <div class="stat-label">متابع</div>
+    </div>
+  </div>
+
+  <div class="hero-buttons">
+    <a href="#menu" class="btn-primary">🍖 شوف المنيو</a>
+    <a href="https://wa.me/962790716066" class="btn-primary" target="_blank">💬 اطلب عبر واتساب</a>
+    <a href="tel:+962790716066" class="btn-secondary">📞 اتصل بنا</a>
   </div>
 </section>
 
 <!-- ABOUT -->
 
 <section id="about">
-  <div class="section-header reveal">
-    <span class="section-label">من نحن</span>
-    <h2 class="section-title">لسنا الوحيدون <span>ولكننا الأفضل</span></h2>
+  <div class="section-header">
+    <div class="section-tag">من نحن</div>
+    <h2 class="section-title">لحومنا بلدية</h2>
+    <p class="section-sub">لسنا الوحيدون ولكننا الأفضل</p>
+    <div class="divider"></div>
   </div>
   <div class="about-grid">
-    <div class="about-text reveal">
-      <h3>ملحمة ومشاوي أهل القمة</h3>
-      <p>لحوم بلدية من مزارعنا — نضمن لك الجودة من المصدر للمائدة. نختص في الزرب على الحطب والمناسف الأردنية بالجميد الكركي والمأكولات العربية الأصيلة.</p>
-      <p>في قلب خلدا، شارع وصفي التل، نقدم لك تجربة طعام لا تنسى تجمع بين الأصالة والمذاق الفريد.</p>
-      <div class="about-features">
-        <div class="feature-card reveal">
-          <div class="feature-icon">🔥</div>
-          <div class="feature-label">زرب على الحطب</div>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🐑</div>
-          <div class="feature-label">لحوم بلدية طازجة</div>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🍚</div>
-          <div class="feature-label">جميد كركي أصيل</div>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🚗</div>
-          <div class="feature-label">توصيل للمنازل</div>
-        </div>
-      </div>
+    <div class="about-card">
+      <div class="about-icon">🥩</div>
+      <h3>لحوم بلدية طازجة</h3>
+      <p>لحوم بلدية من مزارعنا مباشرة، طازجة ومضمونة الجودة في كل وجبة</p>
     </div>
-    <div class="about-visual reveal">
-      <div class="visual-box">
-        <div class="big-text">أهل<br>القمة</div>
-        <div class="sub-text">
-          مطعم ومشاوي أصيل<br>
-          في قلب خلدا - عمّان<br>
-          <strong style="color:var(--gold)">منذ أن بدأنا، نقدم الأفضل دائماً</strong>
-        </div>
-      </div>
+    <div class="about-card">
+      <div class="about-icon">🔥</div>
+      <h3>خبرة في الطبخ</h3>
+      <p>اختصاصنا الزرب على الحطب والمناسف الأردنية بالجميد الكركي والأكلات العربية الأصيلة</p>
+    </div>
+    <div class="about-card">
+      <div class="about-icon">🚗</div>
+      <h3>خدمة توصيل</h3>
+      <p>نوصل طلبك لأي مكان في عمان، اتصل أو واتساب وبيوصلك على طازج</p>
+    </div>
+    <div class="about-card">
+      <div class="about-icon">📍</div>
+      <h3>موقعنا</h3>
+      <p>خلدا - دوار الواحة - مجمع قاعات النعمان - شارع وصفي التل</p>
     </div>
   </div>
 </section>
@@ -727,257 +850,220 @@ background: linear-gradient(90deg, transparent, rgba(200,151,58,0.5), transparen
 <!-- MENU -->
 
 <section id="menu">
-  <div class="section-header reveal">
-    <span class="section-label">قائمة الطعام</span>
-    <h2 class="section-title">المنيو <span>الكامل</span></h2>
+  <div class="section-header">
+    <div class="section-tag">قائمة الطعام</div>
+    <h2 class="section-title">منيونا الكامل</h2>
+    <p class="section-sub">اختر القسم اللي يشتهيلك</p>
+    <div class="divider"></div>
   </div>
 
-  <!-- TABS -->
-
-  <div class="menu-tabs reveal">
-    <button class="tab-btn active" onclick="showTab('tawasi')">التواصي والمناسف</button>
-    <button class="tab-btn" onclick="showTab('mashawi')">المشاوي</button>
-    <button class="tab-btn" onclick="showTab('main')">الطبق الرئيسي</button>
-    <button class="tab-btn" onclick="showTab('salads')">سلطات ومقبلات</button>
-    <button class="tab-btn" onclick="showTab('soups')">شوربات وصواني</button>
-    <button class="tab-btn" onclick="showTab('sandwiches')">ساندويش</button>
+  <div class="menu-tabs">
+    <button class="tab-btn active" onclick="showTab('main')">الطبق الرئيسي</button>
+    <button class="tab-btn" onclick="showTab('mashawi')">مشاوي</button>
+    <button class="tab-btn" onclick="showTab('kersh')">كرش وفوارغ</button>
+    <button class="tab-btn" onclick="showTab('salads')">سلطات وشوربات</button>
+    <button class="tab-btn" onclick="showTab('sawani')">صواني وفخارات</button>
+    <button class="tab-btn" onclick="showTab('healthy')">الأكل الصحي</button>
+    <button class="tab-btn" onclick="showTab('sandwich')">ساندويش</button>
     <button class="tab-btn" onclick="showTab('drinks')">مشروبات</button>
+    <button class="tab-btn" onclick="showTab('fattat')">فتات</button>
   </div>
 
-  <!-- TAWASI -->
+  <!-- الطبق الرئيسي -->
 
-  <div class="menu-panel active" id="panel-tawasi">
-    <div class="menu-banner">
-      <div class="banner-icon">ℹ️</div>
-      <div class="banner-text">أسعار التواصي حسب الكمية — تواصل معنا لتحديد السعر الدقيق حسب عدد الأفراد</div>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-item"><div><div class="item-name">مناسف بالجميد الكركي</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-      <div class="menu-item"><div><div class="item-name">زرب حطب</div><div class="item-sub">دجاج أو لحم</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-      <div class="menu-item"><div><div class="item-name">خرفان محشية</div><div class="item-sub">ورق عنب وكوسا</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-      <div class="menu-item"><div><div class="item-name">خرفان زرب</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-      <div class="menu-item"><div><div class="item-name">أوزي</div><div class="item-sub">دجاج أو لحمة</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-      <div class="menu-item"><div><div class="item-name">دجاج محشي</div><div class="item-sub">فريكة أو أرز</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-      <div class="menu-item"><div><div class="item-name">كبسة زرب</div><div class="item-sub">دجاج أو لحم</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-      <div class="menu-item"><div><div class="item-name">مندي زرب / برياني</div><div class="item-sub">دجاج أو لحم</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-      <div class="menu-item"><div><div class="item-name">مقلوبة</div><div class="item-sub">دجاج أو لحم</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-      <div class="menu-item"><div><div class="item-name">قدرة خليلية</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-      <div class="menu-item"><div><div class="item-name">داوود باشا</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-      <div class="menu-item"><div><div class="item-name">ضلعة محشية</div><div class="item-sub">ورق عنب وكوسا</div></div><div class="item-price">4.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">رقاب محشية</div></div><div class="item-price"><div class="price-note">حسب الكمية</div></div></div>
-    </div>
-    <!-- كرش وفوارغ -->
-    <div style="max-width:1000px;margin:2rem auto 0">
-      <h3 style="color:var(--gold);font-family:'Scheherazade New',serif;font-size:1.5rem;margin-bottom:1rem;text-align:center">كرش وفوارغ</h3>
-      <div class="menu-grid">
-        <div class="menu-item"><div><div class="item-name">وجبة كرش وفوارغ</div><div class="item-sub">مشوي، مسلوق، بالجميد</div></div><div class="item-price">7.00 د</div></div>
-        <div class="menu-item"><div><div class="item-name">رأس خاروف</div><div class="item-sub">مشوي، مسلوق، بالجميد</div></div><div class="item-price">8.00 د</div></div>
-        <div class="menu-item"><div><div class="item-name">مقادم الحبة</div><div class="item-sub">مشوي، مسلوق، بالجميد</div></div><div class="item-price">1.50 د</div></div>
-        <div class="menu-item"><div><div class="item-name">لسانات الحبة</div><div class="item-sub">مشوي، مسلوق، بالجميد</div></div><div class="item-price">3.00 د</div></div>
-      </div>
-    </div>
-    <!-- فتات -->
-    <div style="max-width:1000px;margin:2rem auto 0">
-      <h3 style="color:var(--gold);font-family:'Scheherazade New',serif;font-size:1.5rem;margin-bottom:1rem;text-align:center">فتات</h3>
-      <div class="menu-grid">
-        <div class="menu-item"><div><div class="item-name">فتات</div><div class="item-sub">روس، مقادم، فوارغ، لسانات</div></div><div class="item-price">6.00 د</div></div>
-        <div class="menu-item"><div><div class="item-name">فتة سادة</div></div><div class="item-price">4.00 د</div></div>
-      </div>
-    </div>
+  <div class="menu-category active" id="cat-main">
+    <div class="menu-cat-title">الطبق الرئيسي</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">منسف باللحمة</div></div><div class="item-price">7.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">زرب عالحطب باللحمة</div></div><div class="item-price">7.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كبسة أو مندي لحم</div></div><div class="item-price">7.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">أوزي لحم مع الخضار</div></div><div class="item-price">7.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">ورق عنب وكوسا</div></div><div class="item-price">6.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كرش وفوارغ</div></div><div class="item-price">7.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">رقبة محشية</div></div><div class="item-price">13.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">رقبة مع ورق عنب</div></div><div class="item-price">17.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">ضلعة محشية رز</div></div><div class="item-price">15.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">ضلعة محشية ورق عنب</div></div><div class="item-price">23.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">زغاليل محشية فريكة</div></div><div class="item-price">5.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">فريكة لحمة</div></div><div class="item-price">7.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة مشاوي</div></div><div class="item-price">5.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة كباب</div></div><div class="item-price">5.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة شيش</div></div><div class="item-price">4.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة زرب دجاج</div></div><div class="item-price">3.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">فريكة دجاج</div></div><div class="item-price">3.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">مندي دجاج</div></div><div class="item-price">3.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كبسة دجاج</div></div><div class="item-price">3.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">أوزي دجاج</div></div><div class="item-price">3.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">منسف دجاج</div></div><div class="item-price">3.50 د</div></div>
   </div>
 
-  <!-- MASHAWI -->
+  <!-- مشاوي -->
 
-  <div class="menu-panel" id="panel-mashawi">
-    <div class="menu-grid">
-      <div class="menu-item"><div><div class="item-name">كيلو مشكل</div><div class="item-sub">كباب / شقف / شيش</div></div><div class="item-price">20.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كيلو مشكل سوبر</div><div class="item-sub">كباب / شقف / ريش</div></div><div class="item-price">25.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كيلو شقف</div></div><div class="item-price">24.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كيلو كباب</div></div><div class="item-price">18.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كيلو كباب عراقي</div></div><div class="item-price">18.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">شيش</div></div><div class="item-price">14.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">ريش خاروف</div></div><div class="item-price">22.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كبدة مشوية</div><div class="item-sub">خاروف بلدي</div></div><div class="item-price">15.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">خصاوي وكلاوي</div></div><div class="item-price">15.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">معالق مشوي</div></div><div class="item-price">14.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كيلو شيش</div></div><div class="item-price">14.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كباب حلبي</div></div><div class="item-price">20.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">دجاجة فحم</div></div><div class="item-price">7.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">دجاج تركي</div></div><div class="item-price">7.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">نص فحم أو تركي</div></div><div class="item-price">3.50 د</div></div>
-    </div>
+  <div class="menu-category" id="cat-mashawi">
+    <div class="menu-cat-title">مشاوي</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كيلو مشكل</div><div class="item-desc">كباب / شقف / شيش</div></div><div class="item-price">20.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كيلو مشكل سوبر</div><div class="item-desc">كباب / شقف / ريش</div></div><div class="item-price">25.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كيلو شقف</div></div><div class="item-price">24.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كيلو كباب</div></div><div class="item-price">18.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كيلو كباب عراقي</div></div><div class="item-price">18.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">شيش</div></div><div class="item-price">14.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">ريش خاروف</div></div><div class="item-price">22.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كبدة مشوية (خاروف بلدي)</div></div><div class="item-price">15.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">خصاوي وكلاوي</div></div><div class="item-price">15.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">معالق مشوي</div></div><div class="item-price">14.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كيلو شيش</div></div><div class="item-price">14.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كباب حلبي</div></div><div class="item-price">20.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">دجاجة فحم</div></div><div class="item-price">7.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">دجاج تركي</div></div><div class="item-price">7.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">نص فحم أو تركي</div></div><div class="item-price">3.50 د</div></div>
   </div>
 
-  <!-- MAIN -->
+  <!-- كرش وفوارغ -->
 
-  <div class="menu-panel" id="panel-main">
-    <div class="menu-grid">
-      <div class="menu-item"><div><div class="item-name">منسف باللحمة</div></div><div class="item-price">7.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">زرب عالحطب باللحمة</div></div><div class="item-price">7.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كبسة أو مندي لحم</div></div><div class="item-price">7.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">أوزي لحم مع الخضار</div></div><div class="item-price">7.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">ورق عنب وكوسا</div></div><div class="item-price">6.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كرش وفوارغ</div></div><div class="item-price">7.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">رقبة محشية</div></div><div class="item-price">13.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">رقبة مع ورق عنب</div></div><div class="item-price">17.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">ضلعة محشية رز</div></div><div class="item-price">15.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">ضلعة محشية ورق عنب</div></div><div class="item-price">23.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">زغاليل محشية فريكة</div></div><div class="item-price">5.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">فريكة لحمة</div></div><div class="item-price">7.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">وجبة مشاوي</div></div><div class="item-price">5.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">وجبة كباب</div></div><div class="item-price">5.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">وجبة شيش</div></div><div class="item-price">4.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">وجبة زرب دجاج</div></div><div class="item-price">3.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">فريكة دجاج</div></div><div class="item-price">3.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">مندي دجاج</div></div><div class="item-price">3.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كبسة دجاج</div></div><div class="item-price">3.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">أوزي دجاج</div></div><div class="item-price">3.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">منسف دجاج</div></div><div class="item-price">3.50 د</div></div>
-    </div>
+  <div class="menu-category" id="cat-kersh">
+    <div class="menu-cat-title">كرش وفوارغ</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة كرش وفوارغ</div><div class="item-desc">مشوي، مسلوق، بالجميد</div></div><div class="item-price">7.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">رأس خاروف</div><div class="item-desc">مشوي، مسلوق، بالجميد</div></div><div class="item-price">8.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">مقادم الحبة</div><div class="item-desc">مشوي، مسلوق، بالجميد</div></div><div class="item-price">1.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">لسانات الحبة</div><div class="item-desc">مشوي، مسلوق، بالجميد</div></div><div class="item-price">3.00 د</div></div>
   </div>
 
-  <!-- SALADS -->
+  <!-- سلطات وشوربات -->
 
-  <div class="menu-panel" id="panel-salads">
-    <div class="menu-grid">
-      <div class="menu-item"><div><div class="item-name">خيار بلبن</div></div><div class="item-price">1.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">حمص</div></div><div class="item-price">1.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">حمص بيروتي</div></div><div class="item-price">2.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">متبل</div></div><div class="item-price">2.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">يلنجي</div></div><div class="item-price">3.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">سلطة سخنة</div></div><div class="item-price">2.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">خضار مشكل</div></div><div class="item-price">2.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">بقدونسية</div></div><div class="item-price">2.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">سلطة عربية</div></div><div class="item-price">2.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">سلطة تركية</div></div><div class="item-price">2.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">فتوش</div></div><div class="item-price">2.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">سلطة بطحينة</div></div><div class="item-price">3.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">تبولة لبنانية</div></div><div class="item-price">3.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">سلطة جرجير</div></div><div class="item-price">3.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">سلطة الموسم</div></div><div class="item-price">4.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">سلطة يونانية</div></div><div class="item-price">4.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">مقبلات مشكل</div></div><div class="item-price">4.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">تبولة بالأناناس والرمان</div></div><div class="item-price">5.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">حمص باللحمة</div></div><div class="item-price">5.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كبة مشوية</div></div><div class="item-price">1.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كبة مقلية</div></div><div class="item-price">0.75 د</div></div>
-    </div>
+  <div class="menu-category" id="cat-salads">
+    <div class="menu-cat-title">شوربات</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">شوربة عدس</div></div><div class="item-price">1.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">شوربة الشيف</div></div><div class="item-price">2.00 د</div></div>
+    <div class="menu-cat-title" style="margin-top:24px;">سلطات ومقبلات باردة</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">خيار بلبن</div></div><div class="item-price">1.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">حمص</div></div><div class="item-price">1.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">حمص بيروتي</div></div><div class="item-price">2.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">متبل</div></div><div class="item-price">2.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">يلنجي</div></div><div class="item-price">3.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">سلطة سخنة</div></div><div class="item-price">2.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">خضار مشكل</div></div><div class="item-price">2.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">بقدونسية</div></div><div class="item-price">2.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">سلطة عربية</div></div><div class="item-price">2.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">سلطة تركية</div></div><div class="item-price">2.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">فتوش</div></div><div class="item-price">2.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">سلطة بطحينة</div></div><div class="item-price">3.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">تبولة لبنانية</div></div><div class="item-price">3.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">سلطة جرجير</div></div><div class="item-price">3.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">سلطة الموسم</div></div><div class="item-price">4.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">سلطة يونانية</div></div><div class="item-price">4.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">مقبلات مشكل</div></div><div class="item-price">4.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">تبولة بالأناناس والرمان</div></div><div class="item-price">5.00 د</div></div>
+    <div class="menu-cat-title" style="margin-top:24px;">مقبلات ساخنة</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">حمص باللحمة</div></div><div class="item-price">5.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كبة مشوية</div></div><div class="item-price">1.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كبة مقلية</div></div><div class="item-price">0.75 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">بورك جبنة</div></div><div class="item-price">0.75 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كبدة دجاج</div></div><div class="item-price">4.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">بطاطا</div></div><div class="item-price">1.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">صحن رز سادة</div></div><div class="item-price">1.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">خضار مشوية</div></div><div class="item-price">1.50 د</div></div>
   </div>
 
-  <!-- SOUPS -->
+  <!-- صواني وفخارات -->
 
-  <div class="menu-panel" id="panel-soups">
-    <h3 style="color:var(--gold);font-family:'Scheherazade New',serif;font-size:1.5rem;margin-bottom:1.5rem;text-align:center;max-width:1000px;margin-inline:auto">شوربات</h3>
-    <div class="menu-grid" style="margin-bottom:2rem">
-      <div class="menu-item"><div><div class="item-name">شوربة عدس</div></div><div class="item-price">1.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">شوربة الشيف</div></div><div class="item-price">2.00 د</div></div>
-    </div>
-    <h3 style="color:var(--gold);font-family:'Scheherazade New',serif;font-size:1.5rem;margin-bottom:1.5rem;text-align:center;max-width:1000px;margin-inline:auto">مقبلات ساخنة</h3>
-    <div class="menu-grid" style="margin-bottom:2rem">
-      <div class="menu-item"><div><div class="item-name">بورك جبنة</div></div><div class="item-price">0.75 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كبدة دجاج</div></div><div class="item-price">4.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">بطاطا</div></div><div class="item-price">1.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">صحن رز سادة</div></div><div class="item-price">1.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">خضار مشوية</div></div><div class="item-price">1.50 د</div></div>
-    </div>
-    <h3 style="color:var(--gold);font-family:'Scheherazade New',serif;font-size:1.5rem;margin-bottom:1.5rem;text-align:center;max-width:1000px;margin-inline:auto">صواني وفخارات</h3>
-    <div class="menu-grid">
-      <div class="menu-item"><div><div class="item-name">قلاية بندورة سادة</div></div><div class="item-price">3.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">قلاية بندورة باللحمة</div></div><div class="item-price">5.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كفتة طحينية</div></div><div class="item-price">5.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">كفتة بالبندورة</div></div><div class="item-price">5.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">صاجية كلاوي وخصاوي</div></div><div class="item-price">7.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">صاجية كبدة خاروف</div></div><div class="item-price">7.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">صاجية لحمة</div></div><div class="item-price">7.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">صاجية دجاج</div></div><div class="item-price">5.00 د</div></div>
-    </div>
+  <div class="menu-category" id="cat-sawani">
+    <div class="menu-cat-title">صواني وفخارات</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">قلاية بندورة سادة</div></div><div class="item-price">3.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">قلاية بندورة باللحمة</div></div><div class="item-price">5.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كفتة طحينية</div></div><div class="item-price">5.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كفتة بالبندورة</div></div><div class="item-price">5.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">صاجية كلاوي وخصاوي</div></div><div class="item-price">7.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">صاجية كبدة خاروف</div></div><div class="item-price">7.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">صاجية لحمة</div></div><div class="item-price">7.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">صاجية دجاج</div></div><div class="item-price">5.00 د</div></div>
   </div>
 
-  <!-- SANDWICHES -->
+  <!-- الأكل الصحي -->
 
-  <div class="menu-panel" id="panel-sandwiches">
-    <div class="menu-grid">
-      <div class="menu-item"><div><div class="item-name">كباب</div><div class="item-sub">حمص أو طحينية مع بصل وبندورة</div></div><div class="item-price">1.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">شيش طاووق</div><div class="item-sub">مثومة ودبس رمان</div></div><div class="item-price">1.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">شقف</div><div class="item-sub">حمص أو طحينية مع بصل وبندورة</div></div><div class="item-price">2.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">عرايس</div></div><div class="item-price">1.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">وجبة شاورما عالفحم</div></div><div class="item-price">2.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">وجبة شاورما فحم دبل</div></div><div class="item-price">3.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">وجبة كباب</div></div><div class="item-price">2.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">وجبة كباب دبل</div></div><div class="item-price">3.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">وجبة ربع دجاجة</div><div class="item-sub">مندي، زرب، كبسة</div></div><div class="item-price">3.00 د</div></div>
-    </div>
+  <div class="menu-category" id="cat-healthy">
+    <div class="menu-cat-title">الأكل الصحي</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">نص دجاجة مشوي</div><div class="item-desc">مع خضار مشوية</div></div><div class="item-price">3.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">دجاج شواية + خضار</div></div><div class="item-price">7.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">صدر دجاج</div><div class="item-desc">بالكريمة أو الليمون مع الخضار</div></div><div class="item-price">6.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة مشاوي مع أرز</div></div><div class="item-price">6.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة أهل القمة</div><div class="item-desc">أرز مع صدر دجاج وخضار</div></div><div class="item-price">6.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">فريكة بالكريمة والدجاج</div></div><div class="item-price">6.00 د</div></div>
   </div>
 
-  <!-- DRINKS -->
+  <!-- ساندويش -->
 
-  <div class="menu-panel" id="panel-drinks">
-    <div class="menu-grid">
-      <div class="menu-item"><div><div class="item-name">لبن عيران</div></div><div class="item-price">1.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">برتقال طازج</div></div><div class="item-price">2.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">ليمون ونعنع</div></div><div class="item-price">2.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">مشروبات غازية</div></div><div class="item-price">0.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">شاي</div></div><div class="item-price">0.50 د</div></div>
-      <div class="menu-item"><div><div class="item-name">قهوة</div></div><div class="item-price">1.00 د</div></div>
-      <div class="menu-item"><div><div class="item-name">مياه معدنية</div></div><div class="item-price">0.50 د</div></div>
-    </div>
+  <div class="menu-category" id="cat-sandwich">
+    <div class="menu-cat-title">ساندويش</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">كباب</div><div class="item-desc">حمص أو طحينية مع بصل وبندورة</div></div><div class="item-price">1.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">شيش طاووق</div><div class="item-desc">ثومة وبس زبدة وجبن رومان</div></div><div class="item-price">1.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">شقف</div><div class="item-desc">حمص أو طحينية مع بصل وبندورة</div></div><div class="item-price">2.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">عرايس</div></div><div class="item-price">1.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة شاورما عالفحم</div></div><div class="item-price">2.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة شاورما فحم دبل</div></div><div class="item-price">3.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة كباب</div></div><div class="item-price">2.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة كباب دبل</div></div><div class="item-price">3.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">وجبة ربع دجاجة</div><div class="item-desc">مندي - زرب - كبسة</div></div><div class="item-price">3.00 د</div></div>
+  </div>
+
+  <!-- مشروبات -->
+
+  <div class="menu-category" id="cat-drinks">
+    <div class="menu-cat-title">مشروبات</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">لبن عيران</div></div><div class="item-price">1.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">برتقال طازج</div></div><div class="item-price">2.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">ليمون ونعنع</div></div><div class="item-price">2.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">مشروبات غازية</div></div><div class="item-price">0.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">شاي</div></div><div class="item-price">0.50 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">قهوة</div></div><div class="item-price">1.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">مياه معدنية</div></div><div class="item-price">0.50 د</div></div>
+  </div>
+
+  <!-- فتات -->
+
+  <div class="menu-category" id="cat-fattat">
+    <div class="menu-cat-title">فتات</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">فتات</div><div class="item-desc">روس، مقادم، فوارغ، لسانات</div></div><div class="item-price">6.00 د</div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">فتة سادة</div></div><div class="item-price">4.00 د</div></div>
   </div>
 </section>
 
-<!-- OFFERS -->
+<!-- MONTHLY OFFERS -->
 
-<section id="offers">
-  <div class="section-header reveal">
-    <span class="section-label">عروضنا</span>
-    <h2 class="section-title">العروض <span>الشهرية</span></h2>
+<section class="offers-section" id="offers">
+  <div class="section-header">
+    <div class="section-tag" style="background:var(--gold-light);">العروض الشهرية</div>
+    <h2 class="section-title" style="color:var(--gold-light);">تواصي وسفري</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.75);">أسعار خاضعة للشروط والأحكام</p>
+    <div class="divider"></div>
   </div>
   <div class="offers-grid">
-    <div class="offer-card reveal">
-      <div class="offer-tag">⭐ عرض مميز</div>
-      <div class="offer-name">كبسة / زرب حطب / مندي</div>
-      <div class="offer-desc">دجاج — اختر من الأحجام المتاحة حسب عدد الأفراد. لحوم بلدية طازجة من مزارعنا.</div>
-      <div style="display:flex;flex-direction:column;gap:0.4rem">
-        <div style="font-size:0.9rem;color:var(--cream-dark)">سدر 1 دجاجة — <span style="color:var(--gold);font-weight:700">8 د</span></div>
-        <div style="font-size:0.9rem;color:var(--cream-dark)">سدر 2 دجاجة — <span style="color:var(--gold);font-weight:700">16 د</span></div>
-        <div style="font-size:0.9rem;color:var(--cream-dark)">سدر 3 دجاجة — <span style="color:var(--gold);font-weight:700">24 د</span></div>
-      </div>
+    <div class="offer-card">
+      <h3>🍗 كبسة / زرب حطب / مندي</h3>
+      <div class="offer-row"><span>سدر 1 دجاجة</span><span class="offer-price">8 JD</span></div>
+      <div class="offer-row"><span>سدر 2 دجاجة</span><span class="offer-price">16 JD</span></div>
+      <div class="offer-row"><span>سدر 3 دجاجة</span><span class="offer-price">24 JD</span></div>
     </div>
-    <div class="offer-card reveal">
-      <div class="offer-tag">🔥 طازج يومياً</div>
-      <div class="offer-name">فريكة / أوزي / مطبي</div>
-      <div class="offer-desc">مطبوخ على الحطب بأسلوب أردني أصيل.</div>
-      <div style="display:flex;flex-direction:column;gap:0.4rem">
-        <div style="font-size:0.9rem;color:var(--cream-dark)">سدر 1 دجاجة — <span style="color:var(--gold);font-weight:700">9 د</span></div>
-        <div style="font-size:0.9rem;color:var(--cream-dark)">سدر 2 دجاجة — <span style="color:var(--gold);font-weight:700">18 د</span></div>
-        <div style="font-size:0.9rem;color:var(--cream-dark)">سدر 3 دجاجة — <span style="color:var(--gold);font-weight:700">27 د</span></div>
-      </div>
+    <div class="offer-card">
+      <h3>🌾 فريكة / أوزي / مطبي</h3>
+      <div class="offer-row"><span>سدر 1 دجاجة</span><span class="offer-price">9 JD</span></div>
+      <div class="offer-row"><span>سدر 2 دجاجة</span><span class="offer-price">18 JD</span></div>
+      <div class="offer-row"><span>سدر 3 دجاجة</span><span class="offer-price">27 JD</span></div>
     </div>
-    <div class="offer-card reveal">
-      <div class="offer-tag">👨‍👩‍👧‍👦 عائلي</div>
-      <div class="offer-name">مقلوبة / قدرة / مسخن</div>
-      <div class="offer-desc">سدر 2 دجاجة من أي طبق بالاختيار.</div>
-      <div class="offer-price">20.00 د</div>
+    <div class="offer-card">
+      <h3>🫕 مقلوبة / قدرة / مسخن</h3>
+      <div class="offer-row"><span>سدر 2 دجاجة</span><span class="offer-price">20 JD</span></div>
     </div>
-    <div class="offer-card reveal">
-      <div class="offer-tag">🐑 بلدي أصيل</div>
-      <div class="offer-name">اللحوم البلدية</div>
-      <div class="offer-desc">منسف، زرب عالحطب، أوزي، مندي، كبسة، قدرة — سدر 1 كيلو لحم بلدي</div>
-      <div class="offer-price">18.00 د</div>
+    <div class="offer-card">
+      <h3>🥩 اللحوم البلدية (1 كيلو)</h3>
+      <div class="offer-row"><span>منسف / زرب عالحطب / أوزي / مندي / كبسة / قدرة</span><span class="offer-price">18 JD</span></div>
     </div>
-    <div class="offer-card reveal">
-      <div class="offer-tag">🥗 عرض خاص</div>
-      <div class="offer-name">كيلو مشاوي مشكل</div>
-      <div class="offer-desc">مع مقبلات مشكل — وجبة كاملة لشخصين</div>
-      <div class="offer-price">20.00 د</div>
-    </div>
-    <div class="offer-card reveal">
-      <div class="offer-tag">🐦 زغاليل</div>
-      <div class="offer-name">زغاليل محشية</div>
-      <div class="offer-desc">عدد 2 زغليل بالفريكة والأرز — عدد 3 للمجموعة الكبيرة</div>
-      <div style="display:flex;flex-direction:column;gap:0.4rem">
-        <div style="font-size:0.9rem;color:var(--cream-dark)">عدد 2 — <span style="color:var(--gold);font-weight:700">10 د</span></div>
-        <div style="font-size:0.9rem;color:var(--cream-dark)">عدد 3 — <span style="color:var(--gold);font-weight:700">13 د</span></div>
-      </div>
+    <div class="offer-card">
+      <h3>🎯 عروض مميزة</h3>
+      <div class="offer-row"><span>كيلو مشاوي مشكل + مقبلات مشكل</span><span class="offer-price">20 JD</span></div>
+      <div class="offer-row"><span>ضلعة محشية دوالي</span><span class="offer-price">20 JD</span></div>
+      <div class="offer-row"><span>سدر دوالي وكوسا</span><span class="offer-price">18 JD</span></div>
+      <div class="offer-row"><span>سدر كرش وفوارغ</span><span class="offer-price">18 JD</span></div>
+      <div class="offer-row"><span>سدر 3 زغليل</span><span class="offer-price">13 JD</span></div>
+      <div class="offer-row"><span>رقبة خاروف</span><span class="offer-price">13 JD</span></div>
     </div>
   </div>
 </section>
@@ -985,68 +1071,65 @@ background: linear-gradient(90deg, transparent, rgba(200,151,58,0.5), transparen
 <!-- REVIEWS -->
 
 <section id="reviews">
-  <div class="section-header reveal">
-    <span class="section-label">ما يقوله زوارنا</span>
-    <h2 class="section-title">آراء <span>الزوار</span></h2>
+  <div class="section-header">
+    <div class="section-tag">آراء زبائننا</div>
+    <h2 class="section-title">ماذا يقولون عنا</h2>
+    <p class="section-sub">تقييمات حقيقية من زبائن راضيين</p>
+    <div class="divider"></div>
   </div>
   <div class="reviews-grid">
-    <div class="review-card reveal">
+    <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <div class="review-quote">"</div>
-      <div class="review-text">والله تجربة لا تنسى! المنسف بالجميد الكركي كان خيال، الجودة عالية وخدمة ممتازة. حاسس إني في بيت أهلي بالأردن. بنصح كل الناس يجربوا هاد المطعم!</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">أ</div>
+      <p class="review-text">من أفضل المشاوي في عمّان وهاد مو مبالغة! الشقف والكباب كانوا طازجين وطعمهم خيال. السعر معقول جداً مقارنة بالجودة. أنصح فيه لأي شخص بدو يتعرف على أكل أردني أصيل.</p>
+      <div class="review-author">
+        <div class="author-avatar">ر</div>
         <div>
-          <div class="reviewer-name">أحمد المحمود</div>
-          <div class="reviewer-date">زاره مؤخراً • عمّان</div>
+          <div class="author-name">رنا القاسم</div>
+          <div class="author-tag">زبون دائم ⭐</div>
         </div>
       </div>
     </div>
-    <div class="review-card reveal">
+    <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <div class="review-quote">"</div>
-      <div class="review-text">الزرب على الحطب لا يشبهه شيء! ذبح أكلنا في أماكن تانية. هون الطعم الحقيقي، اللحمة بلدية وطازجة وبينة. المكان نظيف والناس طيبين. رح أرجع قريباً بكل تأكيد!</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">س</div>
+      <p class="review-text">جربت الزغاليل المحشية وما توقعت تكون بهاد المستوى! الطعم الأردني الأصيل موجود بكل لقمة. الخدمة سريعة والطاقم محترم. مطعم يستاهل الزيارة ومو مرة وحدة!</p>
+      <div class="review-author">
+        <div class="author-avatar">ع</div>
         <div>
-          <div class="reviewer-name">سارة الأحمد</div>
-          <div class="reviewer-date">زاره مؤخراً • خلدا</div>
+          <div class="author-name">عمر أبو عيسى</div>
+          <div class="author-tag">زبون منتظم ⭐</div>
         </div>
       </div>
     </div>
-    <div class="review-card reveal">
+    <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <div class="review-quote">"</div>
-      <div class="review-text">طلبنا تواصي لعرس العيلة، شي مستوى عالي جداً. الكميات وافية، الطعم أصيل، والتوصيل كان بالوقت. شكرًا أهل القمة على هاد الطعم الرائع والخدمة اللي ما قصّرتوا فيها!</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">م</div>
+      <p class="review-text">المنسف باللحمة البلدية شيء تاني خالص! الجميد طازج ومحلي، واللحمة طرية جداً. أهل القمة فعلاً بيفهموا بالأكل الأردني الأصيل. ما راح تندم على الزيارة!</p>
+      <div class="review-author">
+        <div class="author-avatar">س</div>
         <div>
-          <div class="reviewer-name">محمد الزعبي</div>
-          <div class="reviewer-date">طلبية تواصي</div>
+          <div class="author-name">سامي الخطيب</div>
+          <div class="author-tag">زبون دائم ⭐</div>
         </div>
       </div>
     </div>
-    <div class="review-card reveal">
+    <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <div class="review-quote">"</div>
-      <div class="review-text">من أفضل المشاوي في عمّان وهاد مو مبالغة! الشقف والكباب كانوا طازجين وطعمهم خيال. السعر معقول جداً مقارنة بالجودة. أنصح فيه لأي شخص بدو يتعرف على أكل أردني أصيل.</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">ر</div>
+      <p class="review-text">طلبت كيلو شقف وكباب والتوصيل وصل بسرعة والطعام كان ساخن وطازج. خدمة التوصيل ممتازة والتعامل راقي. بصراحة من أفضل مطاعم عمان للأكل البلدي!</p>
+      <div class="review-author">
+        <div class="author-avatar">م</div>
         <div>
-          <div class="reviewer-name">رنا القاسم</div>
-          <div class="reviewer-date">زبون دائم</div>
+          <div class="author-name">منى الزيادات</div>
+          <div class="author-tag">زبونة جديدة ⭐</div>
         </div>
       </div>
     </div>
-    <div class="review-card reveal">
+    <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <div class="review-quote">"</div>
-      <div class="review-text">جربت الزغاليل المحشية وما توقعت تكون بهاد المستوى! الطعم الأردني الأصيل موجود بكل لقمة. الخدمة سريعة والطاقم محترم. مطعم يستاهل الزيارة ومو مرة وحدة!</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">ع</div>
+      <p class="review-text">الزرب عالحطب كان أحلى شي جربته بحياتي! الرائحة والطعم والجودة كلها ممتازة. المكان نظيف والموظفين محترمين. تستاهل تجي من أي منطقة بعمّان!</p>
+      <div class="review-author">
+        <div class="author-avatar">ف</div>
         <div>
-          <div class="reviewer-name">عمر الدرابيع</div>
-          <div class="reviewer-date">زيارة عائلية</div>
+          <div class="author-name">فارس العمري</div>
+          <div class="author-tag">زبون دائم ⭐</div>
         </div>
       </div>
     </div>
@@ -1056,64 +1139,56 @@ background: linear-gradient(90deg, transparent, rgba(200,151,58,0.5), transparen
 <!-- CONTACT -->
 
 <section id="contact">
-  <div class="section-header reveal">
-    <span class="section-label">تواصل معنا</span>
-    <h2 class="section-title">ابحث عنّا <span>وتواصل</span></h2>
+  <div class="section-header">
+    <div class="section-tag" style="background:var(--gold);">تواصل معنا</div>
+    <h2 class="section-title">وين نحن وكيف تطلب</h2>
+    <div class="divider"></div>
   </div>
-  <div class="contact-grid">
-    <div class="contact-info reveal">
-      <h3>كيف تصلنا؟</h3>
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <div class="contact-label">الموقع</div>
-          <div class="contact-value">خلدا — دوار الواحة — شارع وصفي التل<br>مجمع قاعات النعمان للأفراح</div>
-        </div>
+
+  <div class="contact-cards">
+    <a href="tel:+962790716066" class="contact-card">
+      <div class="contact-icon">📞</div>
+      <div>
+        <div class="contact-label">اتصل بنا</div>
+        <div class="contact-value">0790 716 066</div>
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div>
-          <div class="contact-label">للطلب والتواصل</div>
-          <div class="contact-value">
-            <a href="tel:0790716066">0790716066</a><br>
-            <a href="tel:0791548951">0791548951</a>
-          </div>
-        </div>
+    </a>
+    <a href="tel:+962791548951" class="contact-card">
+      <div class="contact-icon">📞</div>
+      <div>
+        <div class="contact-label">رقم ثاني</div>
+        <div class="contact-value">0791 548 951</div>
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">🕐</div>
-        <div>
-          <div class="contact-label">خدمة التوصيل</div>
-          <div class="contact-value">متوفرة — اتصل بنا للحجز والطلب</div>
-        </div>
+    </a>
+    <a href="https://wa.me/962790716066" class="contact-card" target="_blank">
+      <div class="contact-icon">💬</div>
+      <div>
+        <div class="contact-label">واتساب</div>
+        <div class="contact-value">اطلب الآن</div>
       </div>
-      <div class="contact-actions">
-        <a href="https://wa.me/962790716066" class="action-btn action-whatsapp" target="_blank">
-          💬 واتساب — اطلب هلق
-        </a>
-        <a href="https://www.instagram.com/ahelalqema" class="action-btn action-instagram" target="_blank">
-          📸 تابعنا على انستغرام
-        </a>
-        <a href="https://maps.app.goo.gl/btWPFZdYPWAnajjc9" class="action-btn action-maps" target="_blank">
-          🗺️ افتح الموقع على الخريطة
-        </a>
+    </a>
+    <a href="https://www.instagram.com/ahelalqema" class="contact-card" target="_blank">
+      <div class="contact-icon">📸</div>
+      <div>
+        <div class="contact-label">انستقرام</div>
+        <div class="contact-value">@ahelalqema</div>
       </div>
-    </div>
-    <div class="map-embed reveal">
-      <div class="map-iframe-container">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.2!2d35.855!3d31.945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDU2JzQyLjAiTiAzNcKwNTEnMTguMCJF!5e0!3m2!1sar!2sjo!4v1234567890"
-          allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+    </a>
+    <a href="https://maps.app.goo.gl/btWPFZdYPWAnajjc9" class="contact-card" target="_blank" style="grid-column: 1 / -1;">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-label">موقعنا</div>
+        <div class="contact-value">خلدا - دوار الواحة - مجمع قاعات النعمان - شارع وصفي التل</div>
       </div>
-      <div style="padding:1.2rem;text-align:center;background:rgba(200,151,58,0.05);border-top:1px solid rgba(200,151,58,0.2)">
-        <p style="color:var(--cream-dark);font-size:0.9rem;margin-bottom:0.8rem">خلدا — دوار الواحة — شارع وصفي التل</p>
-        <a href="https://maps.app.goo.gl/btWPFZdYPWAnajjc9" target="_blank" style="color:var(--gold);font-size:0.9rem;font-weight:700;text-decoration:none">
-          🗺️ افتح في خرائط Google ←
-        </a>
-      </div>
-    </div>
+    </a>
+  </div>
+
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.5!2d35.8500!3d31.9600!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDU3JzM2LjAiTiAzNcKwNTEnMDAuMCJF!5e0!3m2!1sar!2sjo!4v1"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
   </div>
 </section>
 
@@ -1121,34 +1196,22 @@ background: linear-gradient(90deg, transparent, rgba(200,151,58,0.5), transparen
 
 <footer>
   <div class="footer-logo">أهل القمة</div>
-  <div class="footer-tagline">ازكى أكل ومشاوي عنا 🤤</div>
-  <div class="ornament-line"><span>✦</span></div>
-  <div class="footer-copy">© 2025 مطعم أهل القمة — خلدا، عمّان، الأردن</div>
+  <p>مطعم ومشاوي | لحومنا بلدية | ازكى أكل ومشاوي عنا</p>
+  <div class="social-row">
+    <a href="https://www.instagram.com/ahelalqema" class="social-btn" target="_blank">📸 انستقرام</a>
+    <a href="https://wa.me/962790716066" class="social-btn" target="_blank">💬 واتساب</a>
+    <a href="https://maps.app.goo.gl/btWPFZdYPWAnajjc9" class="social-btn" target="_blank">📍 الموقع</a>
+  </div>
+  <p style="margin-top:12px; font-size:12px;">© 2025 أهل القمة - جميع الحقوق محفوظة</p>
 </footer>
 
-<!-- FLOATING CTA -->
-
-<a href="https://wa.me/962790716066" class="floating-cta" target="_blank">
-  💬 اطلب الآن على واتساب
-</a>
-
 <script>
-  // TAB SWITCHING
-  function showTab(tab) {
-    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('panel-' + tab).classList.add('active');
-    event.target.classList.add('active');
-  }
-
-  // SCROLL REVEAL
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function showTab(tabId) {
+  document.querySelectorAll('.menu-category').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('cat-' + tabId).classList.add('active');
+  event.target.classList.add('active');
+}
 </script>
 
 </body>
